@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Greeting Card</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f8ff; }
+    .card { margin: 20px auto; padding: 20px; width: 60%; border: 2px solid #000; border-radius: 10px; background-color: #fff; }
+    h1 { color: #ff4500; }
+    p { color: #555; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Dynamic Greeting Cards!</h1>
+  <div class="card">
+    <h2 id="card-title">Happy Holidays!</h2>
+    <p id="card-message">Wishing you joy and happiness.</p>
+  </div>
+  <script>
+    fetch('card-data.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('card-title').textContent = data.title;
+        document.getElementById('card-message').textContent = data.message;
+      });
+  </script>
+</body>
+</html>
